@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
   '@blocksuite/blocks':
@@ -10,6 +14,12 @@ dependencies:
   '@blocksuite/store':
     specifier: 0.0.0-20230502232311-bfe52748-nightly
     version: 0.0.0-20230502232311-bfe52748-nightly(lit@2.7.3)(yjs@13.6.0)
+  '@toeverything/y-indexeddb':
+    specifier: 0.7.0-canary.5
+    version: 0.7.0-canary.5(yjs@13.6.0)
+  jotai:
+    specifier: ^2.0.4
+    version: 2.0.4(react@18.2.0)
   lit:
     specifier: ^2.7.3
     version: 2.7.3
@@ -717,6 +727,15 @@ packages:
 
   /@popperjs/core@2.11.7:
     resolution: {integrity: sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==}
+    dev: false
+
+  /@toeverything/y-indexeddb@0.7.0-canary.5(yjs@13.6.0):
+    resolution: {integrity: sha512-TiiNyApxF+SyzZBwjlCB2PSf3h+PeYxFnTkqNV9vact1L5Js4n3RglQ7pSJ+p82+PAPrdgZ2lKbkMD+tRJlQQA==}
+    peerDependencies:
+      yjs: ^13.5.51
+    dependencies:
+      idb: 7.1.1
+      yjs: 13.6.0
     dev: false
 
   /@types/flexsearch@0.7.3:
@@ -1452,6 +1471,10 @@ packages:
       safari-14-idb-fix: 3.0.0
     dev: false
 
+  /idb@7.1.1:
+    resolution: {integrity: sha512-gchesWBzyvGHRO9W8tzUWFDycow5gwjvFKfyV9FF32Y7F50yZMp7mP+T2mJIWFx49zicqyC4uefHM17o6xKIVQ==}
+    dev: false
+
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: false
@@ -1512,6 +1535,18 @@ packages:
 
   /isomorphic.js@0.2.5:
     resolution: {integrity: sha512-PIeMbHqMt4DnUP3MA/Flc0HElYjMXArsw1qwJZcm9sqR8mq3l8NYizFMty0pWwE/tzIGH3EKK5+jes5mAr85yw==}
+    dev: false
+
+  /jotai@2.0.4(react@18.2.0):
+    resolution: {integrity: sha512-XkR1Jtm4a2iKV/7fdB3rNHjJz8FkkDMVczqiAok7lt8W4F69l/ZQkPGWSEV+hJOJXRn27k6XYKOoKEQIwBuAMA==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /js-sdsl@4.4.0:

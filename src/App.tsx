@@ -22,11 +22,11 @@ const currentWorkspaceIdAtom = atom<string | null>(null)
 
 class WorkspaceMap extends Map<string, Workspace> {
   #lastWorkspaceId: string | null = null
-  public providers: Map<string, ReturnType<typeof createIndexedDBProvider>> = new Map()
+  public indexedDBProviders: Map<string, ReturnType<typeof createIndexedDBProvider>> = new Map()
 
   override set(workspaceId: string, workspace: Workspace) {
     const provider = createIndexedDBProvider(workspaceId, workspace.doc)
-    this.providers.set(workspaceId, provider)
+    this.indexedDBProviders.set(workspaceId, provider)
     provider.connect()
     provider.whenSynced.then(() => {
       if (workspace.isEmpty) {
@@ -58,7 +58,7 @@ class WorkspaceMap extends Map<string, Workspace> {
     if (this.#lastWorkspaceId) {
       const lastWorkspace = super.get(this.#lastWorkspaceId)
       assertExists(lastWorkspace)
-      const provider = this.providers.get(this.#lastWorkspaceId)
+      const provider = this.indexedDBProviders.get(this.#lastWorkspaceId)
       assertExists(provider)
       provider.disconnect()
     }
@@ -86,7 +86,7 @@ const editorAtom = atom<Promise<EditorContainer | null>>(async (get) => {
   const workspace = get(currentWorkspaceAtom)
   if (!workspace) return null
   const editor = new EditorContainer()
-  const provider = hashMap.providers.get(workspace.id)
+  const provider = hashMap.indexedDBProviders.get(workspace.id)
   assertExists(provider)
   await provider.whenSynced
   const page = workspace.getPage('page0')

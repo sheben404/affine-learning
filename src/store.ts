@@ -62,7 +62,7 @@ class WorkspaceMap extends Map<string, Workspace> {
 
 const hashMap = new WorkspaceMap()
 
-const currentWorkspaceAtom = atom<Promise<Workspace | null>>(async (get) => {
+export const currentWorkspaceAtom = atom<Promise<Workspace | null>>(async (get) => {
   const id = get(currentWorkspaceIdAtom)
   if (!id) return null
   let workspace = hashMap.get(id)
